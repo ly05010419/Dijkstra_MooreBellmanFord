@@ -16,3 +16,8 @@
 ## MooreBellmanFord
 
 > 遍历所以边，更新节点的weight，此过程循环Anzahl von Node 遍。
+
+
+## 参考
+http://www.cnblogs.com/gaochundong/p/dijkstra_algorithm.html
+http://www.cnblogs.com/gaochundong/p/bellman_ford_algorithm.html
