@@ -76,8 +76,8 @@ namespace namespaceStuktur
                 startNode.nodeList.Add(endNode);
                 endNode.nodeList.Add(startNode);
 
-                startNode.weight = edge.weight;
-                endNode.weight = edge.weight;
+                startNode.distance = edge.distance;
+                endNode.distance = edge.distance;
             }
 
         }
@@ -105,7 +105,7 @@ namespace namespaceStuktur
 
         public bool visited = false;
 
-        public double weight;
+        public double distance;
 
         public Node previousNode;
 
@@ -114,12 +114,12 @@ namespace namespaceStuktur
             this.id = id;
             this.edgeList = new List<Edge>();
             this.nodeList = new List<Node>();
-            this.weight = float.MaxValue;
+            this.distance = float.MaxValue;
         }
 
         public int CompareTo(Node other)
         {
-            return this.weight.CompareTo(other.weight);
+            return this.distance.CompareTo(other.distance);
         }
 
         public override string ToString()
@@ -133,18 +133,18 @@ namespace namespaceStuktur
     {
         public Node endNode;
         public Node startNode;
-        public double weight;
+        public double distance;
 
         public Edge(Node startNode, Node endNode, double weight)
         {
             this.startNode = startNode;
             this.endNode = endNode;
-            this.weight = weight;
+            this.distance = weight;
         }
 
         public int CompareTo(Edge other)
         {
-           return this.weight.CompareTo(other.weight);
+           return this.distance.CompareTo(other.distance);
         }
     }
 

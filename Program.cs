@@ -13,15 +13,15 @@ namespace DijkstraMooreBellmanFord
             //algorithmus.zeitOfAlgorithmus(@"../../Wege/Wege1.txt", "MooreBellmanFord", 2, 0, true);
 
             
-            algorithmus.zeitOfAlgorithmus(@"../../Wege/Wege2.txt", "MooreBellmanFord", 2, 0, true);
+            //algorithmus.zeitOfAlgorithmus(@"../../Wege/Wege2.txt", "MooreBellmanFord", 2, 0, true);
 
             
             //algorithmus.zeitOfAlgorithmus(@"../../Wege/Wege3.txt", "MooreBellmanFord", 2, 0, true);
 
-            //algorithmus.zeitOfAlgorithmus(@"../../Wege/G_1_2.txt", "Dijkstra",0,1,true);
+            algorithmus.zeitOfAlgorithmus(@"../../Wege/G_1_2.txt", "Dijkstra",0,1,true);
             //algorithmus.zeitOfAlgorithmus(@"../../Wege/G_1_2.txt", "Dijkstra", 0, 1, false);
             //algorithmus.zeitOfAlgorithmus(@"../../Wege/G_1_2.txt", "MooreBellmanFord" ,0, 1, true);
-           // algorithmus.zeitOfAlgorithmus(@"../../Wege/G_1_2.txt", "MooreBellmanFord", 0, 1, false);
+            //algorithmus.zeitOfAlgorithmus(@"../../Wege/G_1_2.txt", "MooreBellmanFord", 0, 1, false);
 
 
             Console.WriteLine("\n");

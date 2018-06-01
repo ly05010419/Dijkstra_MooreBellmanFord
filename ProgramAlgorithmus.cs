@@ -8,10 +8,7 @@ namespace namespaceAlgorithmus
 {
     class Algorithmus
     {
-        public List<Node> visitList = new List<Node>();
         public List<Node> unVisitList = new List<Node>();
-
-        public double result = 0;
 
         public void zeitOfAlgorithmus(string path, String methode, int startId, int endI, bool directed)
         {
@@ -44,38 +41,35 @@ namespace namespaceAlgorithmus
             {
                 if (node.id == startId)
                 {
-                    node.weight = 0;
-                    visitList.Add(node);
+                    node.distance = 0;
                 }
                 else
                 {
-                    node.weight = Double.MaxValue;
+                    node.distance = Double.MaxValue;
                     unVisitList.Add(node);
                 }
             }
 
 
             Node minNode = graph.nodeList[startId];
-            while (minNode.id != endId)
+            while (unVisitList.Count>0)
             {
                 foreach (Edge e in minNode.edgeList)
                 {
-                    double weight = minNode.weight + e.weight;
+                    double distance = minNode.distance + e.distance;
 
-                    if (weight < e.endNode.weight)
+                    if (distance < e.endNode.distance)
                     {
-                        e.endNode.weight = weight;
-                        // Console.WriteLine(e.endNode + "," + e.endNode.weight);
+                        e.endNode.distance = distance;
+                        e.endNode.previousNode = e.startNode;
                     }
                 }
 
                 minNode = findMinNode();
-
-                visitList.Add(minNode);
                 unVisitList.Remove(minNode);
             }
 
-            Console.WriteLine(endId + " result:" + Math.Round(graph.nodeList[endId].weight, 5));
+            Console.WriteLine(display(endId, graph) + " result:" + Math.Round(graph.nodeList[endId].distance, 5));
 
         }
 
@@ -85,9 +79,9 @@ namespace namespaceAlgorithmus
             Node node = null;
             foreach (Node n in unVisitList)
             {
-                if (n.weight < min)
+                if (n.distance < min)
                 {
-                    min = n.weight;
+                    min = n.distance;
                     node = n;
                 }
             }
@@ -105,33 +99,26 @@ namespace namespaceAlgorithmus
             {
                 if (node.id == startId)
                 {
-                    node.weight = 0;
+                    node.distance = 0;
                 }
                 else
                 {
-                    node.weight = Double.MaxValue;
+                    node.distance = Double.MaxValue;
                 }
             }
 
             bool negativeCycle = false;
 
-            for (int i = 0; i < graph.nodeList.Count; i++)
+            for (int i = 0; i < graph.nodeList.Count-1; i++)
             {
-                //Console.WriteLine("-------------------------------------");
                 foreach (Edge e in graph.edgeList)
                 {
-                    // Console.WriteLine("" + e.startNode+"----"+ e.endNode);
+                    double weight = e.startNode.distance + e.distance;
 
-                    double weight = e.startNode.weight + e.weight;
-
-                    if (e.startNode.weight < double.MaxValue && weight < e.endNode.weight)
+                    if (e.startNode.distance < double.MaxValue && weight < e.endNode.distance)
                     {
-                        // Console.WriteLine("node:"+ e.endNode);
-                        //Console.WriteLine("weight:" + weight);
-                        //Console.WriteLine("vater:" + e.startNode);
-
                         e.endNode.previousNode = e.startNode;
-                        e.endNode.weight = weight;
+                        e.endNode.distance = weight;
                     }
 
                 }
@@ -141,12 +128,11 @@ namespace namespaceAlgorithmus
             //negativeCycle checken!
             foreach (Edge e in graph.edgeList)
             {
-                // Console.WriteLine("" + e.startNode + "----" + e.endNode);
-                if (e.startNode.weight < double.MaxValue)
+                if (e.startNode.distance < double.MaxValue)
                 {
-                    double weight = e.startNode.weight + e.weight;
+                    double weight = e.startNode.distance + e.distance;
 
-                    if (weight < e.endNode.weight)
+                    if (weight < e.endNode.distance)
                     {
                         negativeCycle = true;
                         break;
@@ -161,7 +147,7 @@ namespace namespaceAlgorithmus
             }
             else
             {
-                Console.WriteLine(display(endId, graph) + " result:" + Math.Round(graph.nodeList[endId].weight, 5));
+                Console.WriteLine(display(endId, graph) + " result:" + Math.Round(graph.nodeList[endId].distance, 5));
             }
         }
 
@@ -178,7 +164,6 @@ namespace namespaceAlgorithmus
             if (node.previousNode != null)
             {
                 Edge e = graph.findEdge(node.previousNode, node);
-                result = result + e.weight;
                 return node.previousNode + "," + findVater(node.previousNode, graph);
             }
             else
