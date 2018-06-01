@@ -8,7 +8,12 @@
 > 4. 更新所以V里面节点的子节点，
 > 5. 在W里找到最小节点，加入V 然后回到4）
 
+## 圖示1
 
+![GITHUB](https://kjaer.io/images/algorithms/dijkstra.gif "git圖示")
+
+
+## 圖示2
 ![GITHUB](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif "git圖示")
 
 
@@ -16,3 +21,8 @@
 ## MooreBellmanFord
 
 > 遍历所以边，更新节点的weight，此过程循环Anzahl von Node 遍。
+
+
+## 参考
+http://www.cnblogs.com/gaochundong/p/dijkstra_algorithm.html
+http://www.cnblogs.com/gaochundong/p/bellman_ford_algorithm.html
