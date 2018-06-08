@@ -65,7 +65,7 @@ namespace namespaceAlgorithmus
                     }
                 }
 
-                minNode = findMinNode();
+                minNode = getMinNode();
                 unVisitList.Remove(minNode);
             }
 
@@ -73,7 +73,7 @@ namespace namespaceAlgorithmus
 
         }
 
-        public Node findMinNode()
+        public Node getMinNode()
         {
             double min = Double.MaxValue;
             Node node = null;
@@ -115,7 +115,7 @@ namespace namespaceAlgorithmus
                 {
                     double weight = e.startNode.distance + e.distance;
 
-                    if (e.startNode.distance < double.MaxValue && weight < e.endNode.distance)
+                    if (weight < e.endNode.distance)
                     {
                         e.endNode.previousNode = e.startNode;
                         e.endNode.distance = weight;
