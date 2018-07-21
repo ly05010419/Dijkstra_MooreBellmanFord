@@ -5,8 +5,8 @@
 > 1. 初始化
 > 2. 已访问集合V 和 未访问集合W
 > 3. V={startNode},W={andere Node}   
-> 4. 更新所以V里面节点的子节点，
-> 5. 在W里找到最小节点，加入V 然后回到4）
+> 4. 更新startNode的所有子节点，加入V，去掉startNode
+> 5. V找到最短节点w作为新的startNode 然后回到4）
 
 ## 圖示1
 
