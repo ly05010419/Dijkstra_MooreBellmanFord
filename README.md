@@ -8,7 +8,7 @@
 > 4. 更新startNode的所有子节点，加入V，去掉startNode
 > 5. V找到最短节点w作为新的startNode 然后回到4）
 
-## 圖示1
+## 圖示
 
 ![GITHUB](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif "git圖示")
 
