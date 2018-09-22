@@ -10,10 +10,6 @@
 
 ## 圖示1
 
-![GITHUB](https://kjaer.io/images/algorithms/dijkstra.gif "git圖示")
-
-
-## 圖示2
 ![GITHUB](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif "git圖示")
 
 
